@@ -1,0 +1,41 @@
+# You may copy and paste all this to http://viz-js.com/
+
+digraph G {
+
+  subgraph cluster_1 {
+    node [style=filled shape=Mrecord color=LightGray]
+    style=dashed;
+    label=roles
+
+    rocketship_administrator;
+    rocketship_analyst;
+    rocketship_engineer;
+  }
+  subgraph cluster_2 {
+    node [style=filled shape=record color=SkyBlue]
+    style=dashed;
+    label=objects
+
+    "ROCKETBOARD.PUBLIC\n(schema)";
+    "ROCKETBOARD.TELEMETRY\n(schema)";
+    "ROCKETSHIP.TELEMETRY\n(schema)";
+    "ROCKETBOARD.TELEMETRY.Measures\n(table)";
+    "rocketship\n(database)";
+    "telemetry_analysis\n(warehouse)";
+    "telemetry_etl\n(warehouse)";
+  }
+
+  // GRANT ROLE role1 TO ROLE role2
+  rocketship_administrator -> rocketship_engineer;
+  rocketship_engineer -> rocketship_analyst;
+
+  // GRANT privilege1 TO ROLE role2
+  rocketship_administrator -> "ROCKETBOARD.PUBLIC\n(schema)" [label="ADD SEARCH OPTIMIZATION\nCREATE EXTERNAL TABLE\nCREATE FILE FORMAT\nCREATE FUNCTION\nCREATE MASKING POLICY\nCREATE MATERIALIZED VIEW\nCREATE PIPE\nCREATE PROCEDURE\nCREATE ROW ACCESS POLICY\nCREATE SEQUENCE\nCREATE SESSION POLICY\nCREATE STAGE\nCREATE STREAM\nCREATE TABLE\nCREATE TAG\nCREATE TASK\nCREATE TEMPORARY TABLE\nCREATE VIEW\nMODIFY\nMONITOR\nUSAGE"];
+  rocketship_administrator -> "ROCKETBOARD.TELEMETRY\n(schema)" [label="ADD SEARCH OPTIMIZATION\nCREATE EXTERNAL TABLE\nCREATE FILE FORMAT\nCREATE FUNCTION\nCREATE MASKING POLICY\nCREATE MATERIALIZED VIEW\nCREATE PIPE\nCREATE PROCEDURE\nCREATE ROW ACCESS POLICY\nCREATE SEQUENCE\nCREATE SESSION POLICY\nCREATE STAGE\nCREATE STREAM\nCREATE TABLE\nCREATE TAG\nCREATE TASK\nCREATE TEMPORARY TABLE\nCREATE VIEW\nMODIFY\nMONITOR\nUSAGE"];
+  rocketship_administrator -> "ROCKETSHIP.TELEMETRY\n(schema)" [label="CREATE STAGE"];
+  rocketship_analyst -> "rocketship\n(database)" [label="USAGE"];
+  rocketship_analyst -> "ROCKETSHIP.TELEMETRY\n(schema)" [label="USAGE"];
+  rocketship_analyst -> "telemetry_analysis\n(warehouse)" [label="USAGE"];
+  rocketship_engineer -> "ROCKETSHIP.TELEMETRY\n(schema)" [label="CREATE TABLE\nCREATE VIEW"];
+  rocketship_engineer -> "telemetry_etl\n(warehouse)" [label="USAGE"];
+}

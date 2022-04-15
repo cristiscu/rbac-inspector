@@ -1,0 +1,42 @@
+digraph G {
+  subgraph cluster_0 {
+    node [style=filled color=Lavender];
+    style=dashed;
+    label=users
+
+    alan_shepard;
+    cscutaru;
+    neil_armstrong;
+    sally_ride;
+    snowflake;
+  }
+  subgraph cluster_1 {
+    node [style=filled shape=Mrecord color=LightGray]
+    style=dashed;
+    label=roles
+
+    accountadmin;
+    orgadmin;
+    public;
+    rocketship_administrator;
+    rocketship_analyst;
+    rocketship_engineer;
+    securityadmin;
+    sysadmin;
+    useradmin;
+  }
+
+  // GRANT ROLE role1 TO USER user1
+  alan_shepard -> rocketship_analyst;
+  cscutaru -> accountadmin;
+  cscutaru -> orgadmin;
+  neil_armstrong -> rocketship_administrator;
+  sally_ride -> rocketship_engineer;
+
+  // GRANT ROLE role1 TO ROLE role2
+  accountadmin -> securityadmin;
+  accountadmin -> sysadmin;
+  rocketship_administrator -> rocketship_engineer;
+  rocketship_engineer -> rocketship_analyst;
+  securityadmin -> useradmin;
+}

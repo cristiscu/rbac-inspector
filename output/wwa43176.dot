@@ -1,0 +1,18 @@
+# You may copy and paste all this to http://viz-js.com/
+
+digraph G {
+
+  subgraph cluster_1 {
+    node [style=filled shape=Mrecord color=LightGray]
+    style=dashed;
+    label=roles
+
+    rocketship_administrator;
+    rocketship_analyst;
+    rocketship_engineer;
+  }
+
+  // GRANT ROLE role1 TO ROLE role2
+  rocketship_administrator -> rocketship_engineer;
+  rocketship_engineer -> rocketship_analyst;
+}

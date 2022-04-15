@@ -1,0 +1,21 @@
+digraph G {
+  node [style=filled shape=Mrecord color=LightGray]
+
+  // roles
+  accountadmin;
+  orgadmin;
+  public;
+  rocketship_administrator;
+  rocketship_analyst;
+  rocketship_engineer;
+  securityadmin;
+  sysadmin;
+  useradmin;
+
+  // GRANT ROLE role1 TO ROLE role2
+  accountadmin -> securityadmin;
+  accountadmin -> sysadmin;
+  rocketship_administrator -> rocketship_engineer;
+  rocketship_engineer -> rocketship_analyst;
+  securityadmin -> useradmin;
+}
