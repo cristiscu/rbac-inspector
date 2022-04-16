@@ -93,17 +93,3 @@ Show roles and only MANAGE GRANTS ON ACCOUNT privileges (use underscore when the
 **<code>python rbac-inspector.py --roles --types database --privs ownership</code>**
 
 Show only OWNERSHIP privileges for databases to roles. Generates DOT and HTML files with the account name to visualize this in Graphviz.
-
-# RBAC Hierarchies
-
-Another simple script will save the role and user hierarchies from a Snowflake account, using a different approach. The following call will generate in the output/ folder DOT and HTML files with -users and -roles suffixes:
-
-**<code>python rbac-hierarchies.py</code>**
-
-The role hierarchy:
-
-![Roles Hierarchy](/images/account-roles.png)
-
-The user-role hierarchy:
-
-![Users Hierarchy](/images/account-users.png)
