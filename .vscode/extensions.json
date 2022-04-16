@@ -1,0 +1,21 @@
+{
+    "recommendations": [
+        "redhat.vscode-yaml",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "hashicorp.terraform",
+        "atlassian.atlascode",
+        "efanzh.graphviz-preview",
+        "joaompinto.vscode-graphviz",
+        "ms-azuretools.vscode-docker",
+        "innoverio.vscode-dbt-power-user",
+        "samuelcolvin.jinjahtml",
+        "amazonwebservices.aws-toolkit-vscode",
+        "bastienboutonnet.vscode-dbt",
+        "ms-vscode-remote.remote-wsl",
+        "ms-vscode-remote.remote-containers",
+        "ms-toolsai.jupyter-renderers",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap"
+    ]
+}
